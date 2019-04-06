@@ -1,0 +1,25 @@
+apply plugin: 'java'
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+    compile("org.glassfish.jersey.containers:jersey-container-servlet:${jerseyVersion}")
+    compile("org.springframework.boot:spring-boot-starter-jersey:${springBootVersion}")
+    compile("javax.xml.bind:jaxb-api:${jaxbApiVersion}")
+    compile("javax.activation:activation:${activationVersion}")
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootGradleVersion}"
+    }
+}
+
+apply plugin: 'org.springframework.boot'
